@@ -1,8 +1,9 @@
 {
   "name": "ai-first-programming",
   "displayName": "AI First Programming",
-  "description": "",
+  "description": "A companion extension for the AI First Programming book series that provides easy access to book examples, prompts, and code responses. Includes a Language Model Chat Provider that returns exact code examples from the books.",
   "version": "0.0.1",
+  "publisher": "aifirstprogramming",
   "engines": {
     "vscode": "^1.102.0"
   },
@@ -11,6 +12,27 @@
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aifirstprogramming/aifirstplugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aifirstprogramming/aifirstplugin/issues"
+  },
+  "homepage": "https://github.com/aifirstprogramming/aifirstplugin#readme",
+  "keywords": [
+    "ai",
+    "programming",
+    "education",
+    "learning",
+    "copilot",
+    "examples",
+    "book",
+    "tutorial",
+    "java",
+    "python",
+    "language-model"
+  ],
   "contributes": {
     "commands": [
       {
