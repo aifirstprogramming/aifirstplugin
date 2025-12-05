@@ -1,71 +1,146 @@
-# ai-first-programming README
+# AI First Programming Extension
 
-This is the README for your extension "ai-first-programming". After writing up a brief description, we recommend including the following sections.
+A companion extension for the AI First Programming book series that provides easy access to book examples, prompts, and code responses. The extension includes a Language Model Chat Provider that returns exact code examples from the books, allowing you to practice with AI features in VS Code without using your Copilot token quota.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- **Book Content Browser**: Navigate through book content organized by book, section, chapter, and example in a convenient sidebar tree view
+- **Example Viewer**: View detailed prompts and code responses with syntax highlighting
+- **Copy Functionality**: Easily copy prompts and responses to use in your code editor
+- **AI First Book Examples Model**: A custom language model that returns exact code examples from the books
+- **Language-Aware Matching**: Automatically matches prompts based on your active editor's programming language
+- **Zero Token Cost**: Use the AI First Book Examples model without consuming your Copilot token quota
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- Visual Studio Code version 1.102.0 or later
+- GitHub Copilot (Free or Pro plan) - Note: Enterprise licenses may not support the "Manage Models" feature
 
-## Extension Settings
+## Installation
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+You can find the AI First Programming extension in the VS Code Extension Marketplace.
 
-For example:
+1. Open VS Code
+2. Click on the **Extensions** icon in the left toolbar (represented by 4 squares)
+3. Type **"ai first programming"** or **"ai first book"** in the search bar
+4. Look for the extension published by **Stephen Chin, Cassandra Chin, and Jennifer Reif** (the authors of the AI First series)
+5. Click **Install**
 
-This extension contributes the following settings:
+After installation, you'll see a new icon in the sidebar with a picture of a book that has "A" and "I" on the pages. Click this icon to open the extension.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+> **Note**: The extension will be available in the VS Code Marketplace. [Marketplace link will be added when available]
 
-## Known Issues
+## Using the Plugin
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+### Browsing Book Content
 
-## Release Notes
+1. Click the **AI First Programming** icon in the sidebar (the book icon with "A" and "I")
+2. Navigate through the hierarchical structure:
+   - **Books** → **Sections** → **Chapters** → **Examples**
+3. Click on any example to view its details in a webview panel
 
-Users appreciate release notes as you update your extension.
+### Viewing Examples
 
-### 1.0.0
+When you click on an example, a panel will open showing:
+- **Example Title and Description**
+- **Prompts**: The exact prompts used in the book
+- **Responses**: The corresponding code responses with syntax highlighting
 
-Initial release of ...
+### Copying Prompts and Responses
 
-### 1.0.1
+Each example view includes copy buttons:
+- **Copy Prompt**: Copies the prompt text to your clipboard
+- **Copy Response**: Copies the code response to your clipboard
 
-Fixed issue #.
+You can then:
+1. Open a new editor (`Ctrl+N` / `Cmd+N`)
+2. Paste the prompt into GitHub Copilot Chat (`Ctrl+Shift+I` / `Cmd+Shift+I`)
+3. Use the generated code, or if it doesn't match the book example, paste the response from the plugin
 
-### 1.1.0
+> **Tip**: We recommend always trying the prompt first, but don't hesitate to use the book response if needed!
 
-Added features X, Y, and Z.
+## Enabling the AI First Book Examples Model
+
+The AI First Programming extension includes a custom language model that returns exact code examples from the books. This feature allows you to practice using AI features in VS Code without using your Copilot token quota.
+
+### Step 1: Open an AI Prompt
+
+1. Open any file in VS Code
+2. Bring up an AI prompt by typing:
+   - **Mac**: `Cmd+I`
+   - **Windows/Linux**: `Ctrl+I`
+
+### Step 2: Access Model Selection
+
+1. Click on the **model drop-down** dialog in the chat interface, or
+2. Type the keyboard shortcut:
+   - **Mac**: `Cmd+Alt+.`
+   - **Windows/Linux**: `Ctrl+Alt+.`
+
+This will bring up a pick list of available models.
+
+### Step 3: Open Manage Models
+
+1. In the model selection drop-down, click on **"Manage Models…"** (usually the last item)
+2. This opens the Manage Language Models dialog
+
+### Step 4: Enable AI First Book Examples
+
+1. In the Manage Language Models dialog, find **"AI First Book Examples"** (it should be near the top alphabetically)
+2. Click on it to open the model settings
+3. Check the checkbox to **enable** the model
+4. Click **"OK"** to save your changes
+
+### Step 5: Select the Model
+
+1. Return to your AI prompt
+2. Click the model selection drop-down again
+3. You should now see **"AI First Book Examples"** as an available option
+4. Select it to start using the book examples model
+
+### Using the Model
+
+Once enabled and selected, all your prompts will return the exact code responses that match the book text. Benefits include:
+
+- ✅ **Exact book examples**: Get the same code as shown in the book
+- ✅ **No token costs**: Complete all book exercises without using your Copilot quota
+- ✅ **Language-aware**: Automatically matches prompts based on your active editor's language
+- ✅ **Practice mode**: Perfect for learning AI-assisted coding without worrying about limits
+
+> **Caution**: The AI First Book Model only works with individual GitHub plans like Free and Copilot Pro. If you have an enterprise GitHub license from your work, the "Manage Models…" menu item will be missing from the drop-down. To use the AI First Book Model, you will need to create a separate GitHub account and associate it with Copilot.
+
+## Getting Started Walkthrough
+
+When you first install the extension, VS Code will offer a getting started walkthrough that guides you through:
+1. Enabling the AI First Book Examples model
+2. Exploring the book content
+3. Opening examples
+4. Copying example code
+5. Using examples with GitHub Copilot Chat
+
+You can access this walkthrough anytime from the VS Code welcome page or by searching for "Get Started with AI First Programming" in the Command Palette.
+
+## Keyboard Shortcuts
+
+- **Open AI Prompt**: `Cmd+I` (Mac) / `Ctrl+I` (Windows/Linux)
+- **Model Selection**: `Cmd+Alt+.` (Mac) / `Ctrl+Alt+.` (Windows/Linux)
+- **Focus on AI First Books Panel**: Use the command `ai-first-programming.focus` or click the sidebar icon
+
+## Support
+
+For issues, questions, or contributions, please visit the [GitHub repository](https://github.com/aifirstbook/aifirstplugin).
+
+## Authors
+
+This extension is created by the authors of the AI First Programming book series:
+- **Stephen Chin** - [@steveonjava](https://github.com/steveonjava)
+- **Cassandra Chin** - [@Tingsters](https://github.com/tingsters)
+- **Jennifer Reif** - [@JMHReif](https://github.com/JMHReif)
+
+## License
+
+See the [LICENSE](LICENSE) file for details.
 
 ---
 
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+**Enjoy learning with AI First Programming!**
