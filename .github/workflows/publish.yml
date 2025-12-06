@@ -19,11 +19,14 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Fetch all history for version detection
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -74,8 +77,12 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add package.json
-            git commit -m "Bump version to ${{ steps.version.outputs.version }}" || exit 0
-            git push || exit 0
+            if git diff --staged --quiet; then
+              echo "No changes to commit"
+            else
+              git commit -m "Bump version to ${{ steps.version.outputs.version }}"
+              git push
+            fi
           else
             # Version needs to be set manually (tag or custom version)
             CURRENT_VERSION=$(node -p "require('./package.json').version")
@@ -85,8 +92,8 @@ jobs:
               git config user.name "github-actions[bot]"
               git config user.email "github-actions[bot]@users.noreply.github.com"
               git add package.json
-              git commit -m "Bump version to $TARGET_VERSION" || exit 0
-              git push || exit 0
+              git commit -m "Bump version to $TARGET_VERSION"
+              git push
             else
               echo "Version already set to $TARGET_VERSION, skipping update"
             fi
